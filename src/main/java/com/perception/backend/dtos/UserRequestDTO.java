@@ -27,6 +27,7 @@ public class UserRequestDTO {
         user.setEmail(this.email);
         user.setPassword(this.password);
         user.setMobileNumber(this.mobileNumber);
+        user.setUsername(this.email);
         return user;
     }
 }

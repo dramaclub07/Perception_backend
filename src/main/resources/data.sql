@@ -1,1 +1,2 @@
-INSERT INTO users (id, name, email, password, role, enabled) VALUES (1, 'Admin', 'admin@example.com', '$2a$10$hashedpassword', 'ADMIN', true) ON CONFLICT DO NOTHING;
+INSERT INTO "user" (id, username, password, full_name, email, mobile_number, role)
+VALUES (1, 'admin', '$2a$10$hashedpassword', 'Admin', 'admin@example.com', '1234567890', 'ADMIN');
