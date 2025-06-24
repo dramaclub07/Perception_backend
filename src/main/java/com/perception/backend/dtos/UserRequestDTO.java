@@ -20,6 +20,8 @@ public class UserRequestDTO {
     private String password;
     @NotBlank(message = "Mobile number is required")
     private String mobileNumber;
+    private String status;
+    private String role;
 
     public User toUser() {
         User user = new User();
@@ -28,6 +30,8 @@ public class UserRequestDTO {
         user.setPassword(this.password);
         user.setMobileNumber(this.mobileNumber);
         user.setUsername(this.email);
+        user.setRole(this.role != null ? this.role : ("admin@example.com".equalsIgnoreCase(this.email) ? "ADMIN" : "USER"));
+        user.setStatus(this.status != null ? this.status : "ACTIVE");
         return user;
     }
 }

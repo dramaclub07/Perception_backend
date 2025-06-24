@@ -22,6 +22,7 @@ public class User {
     private String email;
     private String mobileNumber;
     private String role;
+    private String status; // e.g., 'ACTIVE' or 'INACTIVE'
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Note> notes;
 
@@ -39,6 +40,8 @@ public class User {
     public void setMobileNumber(String mobileNumber) { this.mobileNumber = mobileNumber; }
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
     public List<Note> getNotes() { return notes; }
     public void setNotes(List<Note> notes) { this.notes = notes; }
 }

@@ -15,13 +15,15 @@ public class UserResponseDTO {
     private String fullName;
     private String email;
     private String mobileNumber;
+    private String status;
 
     public static UserResponseDTO fromUser(User user) {
         return new UserResponseDTO(
             user.getId(),
             user.getFullName(),
             user.getEmail(),
-            user.getMobileNumber()
+            user.getMobileNumber(),
+            user.getStatus()
         );
     }
 }

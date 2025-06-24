@@ -9,6 +9,7 @@
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Service;
 
+    import java.util.List;
     import java.util.Optional;
 
     @Service
@@ -55,5 +56,25 @@
             }
         }
         throw new RuntimeException("Invalid credentials");
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    public User updateUserRole(Long id, String role) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        user.setRole(role);
+        return userRepository.save(user);
+    }
+
+    public User updateUserStatus(Long id, String status) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+        user.setStatus(status);
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
     }
     }
