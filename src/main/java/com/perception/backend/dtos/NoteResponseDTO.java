@@ -45,9 +45,9 @@ public class NoteResponseDTO {
     public static NoteResponseDTO fromNote(Note note) {
         NoteResponseDTO dto = new NoteResponseDTO();
         dto.setId(note.getId());
-        dto.setTitle(note.getTitle());
+        dto.setTitle(note.getTitle() != null ? note.getTitle() : "");
         dto.setContent(note.getContent());
-        dto.setColor(note.getColor());
+        dto.setColor(note.getColor() != null ? note.getColor() : "#ffffff");
         dto.setCreatedAt(note.getCreatedAt() != null ? note.getCreatedAt().toString() : null);
         dto.setUpdatedAt(note.getUpdatedAt() != null ? note.getUpdatedAt().toString() : null);
         dto.setUserId(note.getUser() != null ? note.getUser().getId() : null);
@@ -59,7 +59,7 @@ public class NoteResponseDTO {
             dto.setTimestamp(null);
         }
 
-        dto.setWeather("Sunny");
+        dto.setWeather(note.getWeather() != null ? note.getWeather() : "Sunny");
 
         return dto;
     }
